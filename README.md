@@ -1,1 +1,2 @@
-# nuxtgenerate2
+# blueblocks-lightbicycle
+Nuxt新官网
