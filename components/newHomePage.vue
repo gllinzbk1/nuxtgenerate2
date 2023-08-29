@@ -144,7 +144,7 @@ const newsList = [
 ];
 
 const homepage = await useContentfulEntry({ 'entry_id': '33RMNLdLtpRIlhWSia24IC' });
-console.log('contentful-mainpage', homepage)
+//console.log('contentful-mainpage', homepage)
 
 </script>
   

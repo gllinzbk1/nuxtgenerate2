@@ -30,20 +30,20 @@
             <template #Tech>
                 <div class="py-4">
                     <img src="https://pic.lightbicycle.com/www/product/drawings/road/images/wru88c02d-f/source/PC-road-disc-falcon-series-rim-tech.jpg" alt="PC-road-disc-falcon-series-rim-tech.jpg">
-                    <p class="my-3"><router-link to="https://www.lightbicycle.com/series/mtb/rim/recon-pro"><blueblocksui-button text="Learn More >>" mystyle="text-blue-600 underline" type="text"></blueblocksui-button></router-link></p>
+                    <p class="my-3"><router-link to="/"><blueblocksui-button text="Learn More >>" mystyle="text-blue-600 underline" type="text"></blueblocksui-button></router-link></p>
                 </div>
             </template>
             <template #Warranty>
                 <div class="py-4">
                     <blueblocksui-paragraph position="center" :texts="warrantyText"></blueblocksui-paragraph>
-                    <p class="my-3"><router-link to="https://www.lightbicycle.com/series/mtb/rim/recon-pro"><blueblocksui-button text="Learn More >>" mystyle="text-blue-600 underline" type="text"></blueblocksui-button></router-link></p>
+                    <p class="my-3"><router-link to="/"><blueblocksui-button text="Learn More >>" mystyle="text-blue-600 underline" type="text"></blueblocksui-button></router-link></p>
                     <div class="flex justify-center"><blueblocksui-product-detail type="warranty" :warrantyType="2"></blueblocksui-product-detail></div>
                 </div>
             </template>
             <template #InTheBox>
                 <div class="py-4">
                     <blueblocksui-paragraph position="center" :texts="boxText"></blueblocksui-paragraph>
-                    <p class="my-3"><router-link to="https://www.lightbicycle.com/series/mtb/rim/recon-pro"><blueblocksui-button text="Download user guides >>" mystyle="text-blue-600 underline" type="text"></blueblocksui-button></router-link></p>
+                    <p class="my-3"><router-link to="/"><blueblocksui-button text="Download user guides >>" mystyle="text-blue-600 underline" type="text"></blueblocksui-button></router-link></p>
                     <blueblocksui-layouts type="upDown" :content="layoutsContent" :row="5">
                 
                     </blueblocksui-layouts>
@@ -114,7 +114,7 @@ if(currentProduct=='' || currentProduct==undefined){
         })
     });
 }
-console.log('products',products[currentProduct],showImages)
+//console.log('products',products[currentProduct],showImages)
 const appConfig = useAppConfig()
 const seo = productStore.products[currentProduct]['seo']
 useHead({

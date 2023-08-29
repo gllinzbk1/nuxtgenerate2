@@ -11,18 +11,18 @@ export function useAnalyzeRouteIsListOrContent(route) {
   //const newRQ = useMapKeys(routeParam, function (value, key) { return useToLower(key) })
   //处理路由路径分析  
   if (newRP[2] != undefined) {
-    console.log('newRP',newRP)
+    //console.log('newRP',newRP)
     const element = useToLower(newRP[2]);
     //是否page
     const pagenum = element.search(/page-\d+/g);
-    console.log('newRP',newRP,pagenum)
+    //console.log('newRP',newRP,pagenum)
     if ((pagenum != -1)) {
       //是page,就是列表
       return 1;
     } else {
       const Two = element.match(/--/g) //列表搜索特有的标签，返回索引位置
       const One = element.match(/\w+(-)\w+/g) //分页，内容页特有的标签，有些标签 值有-,返回数组列表或undefined
-      console.log('one,tow',One,Two,useSize(One))
+     // console.log('one,tow',One,Two,useSize(One))
       if (useSize(Two) ==1 && useSize(One) > 5) return 2;  //内容，有--
       if (useSize(Two) > 0) return 1;  //列表，有--
       if (useSize(Two)==0 && useSize(One) <= 2) return 1;  //列表，--,-都没有      
@@ -44,7 +44,7 @@ export function useAnalyzeRoute(route) {
   const routePath = route.path
   const routePathArr = routePath.split("\/")
   const routeResult = {};
-  console.log('routeSlug', routeParam, route.path, routePath.split("\/"), useSize(routePathArr) - useSize(routeParam))
+  //console.log('routeSlug', routeParam, route.path, routePath.split("\/"), useSize(routePathArr) - useSize(routeParam))
   //path处理
   const pathCount = useSize(routePathArr) - useSize(routeParam)
   let pathProfix = '/'
@@ -61,11 +61,11 @@ export function useAnalyzeRoute(route) {
   //处理路由路径分析
   for (let i = 0; i < useSize(routeParam); i++) {
     const element = (routeParam[i]);  //useToLower,由于路径会转化目标，所以大小写问题
-    console.log('i', i, element)
+   // console.log('i', i, element)
     if (element == '') continue;
     //是否page
     const pagenum = element.search(/page-\d+/g);
-    console.log('pagenum', pagenum)
+    //console.log('pagenum', pagenum)
     if ((pagenum != -1) && i != 0) {
       routeResult['page'] = element.match(/\d+/g)[0];
     } else {
@@ -73,7 +73,7 @@ export function useAnalyzeRoute(route) {
     }
   }
   routeResult['fullPathNoPage'] = useReplace(routeResult['fullPath'],/\/page-\d+/g,''); //去掉page
- // console.log('routeResult-1', routeResult)
+  //console.log('routeResult-1', routeResult)
   return routeResult
 }
 //----------------产品开始--------------------------
@@ -242,7 +242,7 @@ export function useProduceTagsHref(productStore,subCategories,routeResult) {
     let urlkey ={}
     const TagUlrStr = routeResult[2]
     const searchkey = TagUlrStr.split(/--/g)
-    console.log('useProduceTagsHref-urlkey', searchkey)
+    //console.log('useProduceTagsHref-urlkey', searchkey)
     if (searchkey != undefined) {
       searchkey.forEach(searchElement => {
         if(searchElement==undefined) return;
@@ -255,7 +255,7 @@ export function useProduceTagsHref(productStore,subCategories,routeResult) {
         //console.log('useProduceTagsHref-urlkey-result-for', urlkey)
       });
     }
-    console.log('useProduceTagsHref-urlkey-result', urlkey)
+   // console.log('useProduceTagsHref-urlkey-result', urlkey)
     //链接与标签组合新链接
     let querytags = '';
     for (const key in allTagsStore) {

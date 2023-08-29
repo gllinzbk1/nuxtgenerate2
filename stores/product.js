@@ -172,7 +172,7 @@ export const registerStore = (id) => {
         console.log('storeInitDataLength',useSize(pdata))
         this.products = pdata.data.productList;
         //this.allTags = pdata.data.allTags; ,可能因为空，赋值，倒致重写写不了
-        this.allTags = pdata.data.cateItems.all.allTags; //,可能因为空，赋值，倒致重写写不了
+       // this.allTags = pdata.data.cateItems.all.allTags; //,可能因为空，赋值，倒致重写写不了
         this.mainCategory = pdata.data.cate;
         this.subCategory = pdata.data.cateItems;
         //this.quickArr = pdata.data.quickArr;

@@ -2,11 +2,12 @@
 // 获取产品信息,调用store,并存入；不需要重新获取数据，请用usePinia复用件getStoreById(storeName)获取
 export async function useProductListInfo(category,storeName,data) {
 
-    // const { data:data } = await useFetch('/api/list?url='+category+'&page=1')  
-    // const pdata = JSON.parse(data.value)
-    //console.log('apiDataLength',useSize(pdata),pdata)
 
-    const productStore = registerStore(storeName)().init(data); 
+  // const { data:data } = await useFetch('/api/list?url='+category+'&page=1')  
+  // const pdata = JSON.parse(data.value)
+  // console.log('apiDataLength',useSize(pdata),pdata)
+
+  const productStore = registerStore(storeName)().init(data); 
     //------已改成pinia的actions，init方法处理---   
     // productStore.products = pdata.data.productList;
     // productStore.allTags = pdata.data.allTags;

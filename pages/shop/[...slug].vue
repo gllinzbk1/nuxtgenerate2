@@ -10,15 +10,14 @@ console.log('pageStyle',pageStyle)
 const routeResult = useAnalyzeRoute(route);
 //--------------获取当前大类的产品列表,并初始ID为routeResult[0]的Store---------------  
 //索引为0是产品大类，暂时没有严格大类列表模式
-import { state, setProduct } from '~/stores/nav'
-
+import { state, setProduct,reset} from '~/stores/nav'
+reset();
 const product = computed({
-  get: () => state.product,
+  get: () => toRaw(state.product),
   set: value => setProduct(value),
 })
-
+console.log('productddpp',typeof product.value,product.value)
 if(!Object.hasOwnProperty.call(product.value, 'data')){
-  const { data:data } = await useFetch('/api/list?url='+category+'&page=1');
   // const { data:data } = await useFetch('/api/readjson',{      
   //     method: 'POST', // Post method works
   //     body: {
@@ -26,11 +25,17 @@ if(!Object.hasOwnProperty.call(product.value, 'data')){
   //     },
   //     responseType:'json'
   //   })
-    setFooter(data.value)
+  const { data:data } = await useFetch('/api/list?url='+routeResult[0]+'&page=1',{responseType:"json"})  
+    const pdata = data.value
+    
+    setProduct(pdata)
+    console.log('productdd')
   await useProductListInfo(routeResult[0],routeResult[0],data.value);
 }else{
+  console.log('productddp')
   await useProductListInfo(routeResult[0],routeResult[0],product.value);
 }
+//await useProductListInfo(routeResult[0],routeResult[0])
 </script>
 
 

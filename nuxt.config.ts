@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   },
   modules: [
     // pinia plugin
+    '@nuxtjs/harlem',
     '@nuxtjs/robots',
     'nuxt-simple-sitemap',
     '@pinia/nuxt',
@@ -117,9 +118,9 @@ export default defineNuxtConfig({
     prerender: {
       //baseURL: "http://localhost:3000",
       crawlLinks: true,
-      routes: ['/', 'sitemap.xml'],
+     // routes: ['/', 'sitemap.xml'],
       // ignore: ['/tak', '/konfiguration', '/checkout'],
-      //failOnError:false
+      failOnError:false
     },
   },
   //站点地图的配置
